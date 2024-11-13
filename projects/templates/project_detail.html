@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ project.title }} Details</title>
+</head>
+<body>
+    <h1>{{ project.title }}</h1>
+    <p>Client: {{ project.client.name }}</p>
+    <p>Description: {{ project.description }}</p>
+    <p>Status: {{ project.status }}</p>
+    <p>Start Date: {{ project.start_date }}</p>
+    <p>Deadline: {{ project.deadline }}</p>
+    {% if project.completed_date %}
+        <p>Completed Date: {{ project.completed_date }}</p>
+    {% endif %}
+    <a href="{% url 'project_edit' project.pk %}">Edit</a>
+    <a href="{% url 'project_list' %}">Back to Projects</a>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Details</title>
+</head>
+<body>
+    <h1>{{ client.name }}</h1>
+    <p>Email: {{ client.email }}</p>
+    <p>Phone: {{ client.phone }}</p>
+    <p>Address: {{ client.address }}</p>
+    <a href="{% url 'client_edit' client.pk %}">Edit</a>
+    <a href="{% url 'client_list' %}">Back to Clients</a>
+</body>
+</html>

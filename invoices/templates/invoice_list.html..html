@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoices</title>
+</head>
+<body>
+    <h1>Invoices</h1>
+    <a href="{% url 'invoice_create' %}">Create New Invoice</a>
+    <ul>
+        {% for invoice in invoices %}
+            <li>
+                <a href="{% url 'invoice_detail' invoice.pk %}">{{ invoice.client.name }} - {{ invoice.amount }}</a>
+                <a href="{% url 'invoice_edit' invoice.pk %}">Edit</a>
+                <a href="{% url 'invoice_delete' invoice.pk %}">Delete</a>
+                {% if invoice.status == 'unpaid' %}
+                    <a href="{% url 'invoice_mark_paid' invoice.pk %}">Mark as Paid</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

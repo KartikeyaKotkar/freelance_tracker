@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoice Details</title>
+</head>
+<body>
+    <h1>{{ invoice.client.name }} - Invoice Details</h1>
+    <p>Project: {{ invoice.project.title }}</p>
+    <p>Amount: ${{ invoice.amount }}</p>
+    <p>Status: {{ invoice.status }}</p>
+    <p>Due Date: {{ invoice.due_date }}</p>
+    <p>Issue Date: {{ invoice.issue_date }}</p>
+    <p>Paid Date: {{ invoice.paid_date }}</p>
+    <a href="{% url 'invoice_edit' invoice.pk %}">Edit</a>
+    <a href="{% url 'invoice_list' %}">Back to Invoices</a>
+</body>
+</html>
